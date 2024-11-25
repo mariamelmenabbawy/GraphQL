@@ -1,0 +1,56 @@
+query Example($id: ID!){
+  
+  review(id: $id) {
+    id
+    game{
+      id
+      title
+      platform
+      reviews {
+        rating
+      }
+    }
+   
+  }
+}
+###############################################################################################
+mutation DeleteMutation($id:ID!){
+deletegame(id:$id) {
+  id
+  title
+  platform
+}
+}
+###############################################################################################
+mutation AddMutation($game:addgameinput!){
+addgame(game:$game) {
+  id
+  title
+  platform
+}
+}
+
+{
+  "game" : {
+  "title":"a new title",
+  "platform":["new Game 111 "]
+}
+}
+
+###############################################################################################
+mutation editMutation($id:ID!,$edits:editgameinput!){
+updategame(edits:$edits ,id:$id) {
+  id
+  title
+  platform
+  
+}
+}
+
+{
+  "id": "2",
+  "edits": {
+    "title": "TITLE 845120",
+    "platform": ["PlayStation"]
+  }
+}
